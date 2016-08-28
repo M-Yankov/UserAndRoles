@@ -97,7 +97,7 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, string, Identi
 }
 ```
 
-When you try to compile the project you will receive few errors. In `IdentityConfig.cs` `ApplicationUserManager` shoud be changed a little. Inherit `UserManager<User, string>`, change the type of parameter in the constructor to `IUserStore<User, string>`. In Create method: initializtion of UserStore should be changed. *Everywhere `UserStore` is required, use it like* : *new UserStore<User, Role, string, IdentityUserLogin, UserRoles, IdentityUserClaim>(context)*: 
+When you try to compile the project you will receive few errors. In `IdentityConfig.cs` `ApplicationUserManager` shoud be changed a little. Inherit `UserManager<User, string>`, change the type of parameter in the constructor to `IUserStore<User, string>`. In Create method: initializtion of UserStore should be changed. **Everywhere `UserStore` is required, use it like* : *new UserStore<User, Role, string, IdentityUserLogin, UserRoles, IdentityUserClaim>(context)**: 
 
 ```csharp
 public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
@@ -131,7 +131,7 @@ foreach (var user in dbUsers)
 
 ```
 
-The *SOLUTION* :
+The **SOLUTION** :
 ```csharp
 model = new ApplicationDbContext().Users.Include(u => u.Roles).Select(u => new UserViewModel()
 {
