@@ -1,6 +1,7 @@
 # UserAndRoles
 
- This demo show a way to extend *ASP .NET Identity 2* - adding navigation properties between `ApplicatiionUser` and `IdentityRole`.
+
+ This demo shows a way to extend *ASP .NET Identity 2* - adding navigation properties between `ApplicatiionUser` and `IdentityRole`.
  
 ### Requirements
 
@@ -16,6 +17,11 @@
   * Check `Web.Config` and set the server.
   * Compile the project and run.
   
+### Source code
+
+[UserAndRoles/UserAndRolesDemo/UserAndRolesDemo/
+](/UserAndRolesDemo/UserAndRolesDemo)
+
 ### Description
 
 For this tutorial is used default ASP .Net MVC 5 Template with Individual users.
@@ -131,7 +137,7 @@ foreach (var user in dbUsers)
 
 ```
 
-The **SOLUTION** :
+### The **SOLUTION** :
 ```csharp
 model = new ApplicationDbContext().Users.Include(u => u.Roles).Select(u => new UserViewModel()
 {
@@ -146,8 +152,36 @@ Now this gets all users with their roles with minimum effort (one query).
 
 ### Web-Site Explanation
 
+* When the site is initialized, `Global.asax.cs` is configured to create 5 roles (`Admin`,`Editor`,`Manager`,`Developer`,`Tester`) and 1 user associated with `Admin` and  `Manager` roles. And all this into the database.
+* To login use **Administrator** for username(email) and **123456** for password
+* In the home screen you will see in top information for current logged user and a dropdown menu with roles allows to add current user to the role.
 
-#### Tags
+![](/UserAndRolesDemo/UserAndRolesDemo/Content/Images/LoginFirstView.png)
+* Below are two tables. In the first table are all users and roles for each one. First column represents the user name and the second column represents the roles associated.
+* In the second table are listed all roles and users associated with each one. First column represents the role name and the second users associated with this role.
+
+![](/UserAndRolesDemo/UserAndRolesDemo/Content/Images/LoginFirstView2.png)
+* To test functionallity: register few users and associate this user in roles of your choice.
+* Sample screenshots: 
+![](/UserAndRolesDemo/UserAndRolesDemo/Content/Images/Users.png)
+![](/UserAndRolesDemo/UserAndRolesDemo/Content/Images/Roles.png)
+
+ *There are typo Rditor shoild be Editor
+ 
+### Resources
+
+ [Extending identityuserrole in identity 2](http://stackoverflow.com/questions/25857806/extending-identityuserrole-in-identity-2-0)
+
+ [ASP NET Identity Customizing Users and Roles](http://www.codeproject.com/Articles/790720/ASP-NET-Identity-Customizing-Users-and-Roles)
+ 
+ [applicationuser and applicationrole navigation properties in identity 2](http://stackoverflow.com/questions/24823092/applicationuser-and-applicationrole-navigation-properties-in-identity-2-0-0)
+ 
+ [Extending primarykey of identityuserrole in identity 2](http://stackoverflow.com/questions/28721051/extending-primarykey-of-identityuserrole-in-identity-2)
+ 
+
+
+#### Tags 
+<meta name="keywords" content="ASP,ASP Identity,.NET,Entity Framework,IdentityUserRole,MSSQL,MVC,Extends,Microsoft,Users,Extends" />
  
  <strong> `ASP` </strong>   <strong> `.NET` </strong>  <strong> `ASP Identity` </strong>  <strong> `Entity Framework` </strong>  <strong> `ASP .NET` </strong>  <strong> `MVC` </strong>  <strong> `MSSQL` </strong>  <strong> `IdentityUserRole` </strong>  <strong> `Microsoft` </strong>  <strong> `Extends` </strong>  <strong> `Navigation property` </strong>  <strong> `Relation` </strong>  <strong> `Users` </strong>  <strong> `ASP User` </strong>  <strong> `Role` </strong>  <strong> `ASP Roles` </strong>
  
