@@ -16,10 +16,6 @@ namespace UserAndRolesDemo.Controllers
         [Authorize]
         public ActionResult Index()
         {
-
-
-
-
             User currentUser = new ApplicationDbContext().Users.Find(this.User.Identity.GetUserId());
             var model = new UserViewModel()
             {

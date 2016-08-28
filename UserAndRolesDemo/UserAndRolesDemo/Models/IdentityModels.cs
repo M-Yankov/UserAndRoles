@@ -59,12 +59,5 @@ namespace UserAndRolesDemo.Models
         {
             return new ApplicationDbContext();
         }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<UserRoles>().HasKey(hk => new { hk.UserId, hk.RoleId, });
-        }
     }
 }
