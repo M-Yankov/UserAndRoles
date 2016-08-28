@@ -1,0 +1,52 @@
+﻿@model UserAndRolesDemo.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+
+}
+
+<div class="jumbotron">
+
+    <h3 class="text-center text-primary"> Current User </h3>
+
+    <table class="table table-bordered">
+        <tr>
+            <td>Age</td>
+            <td>
+                @this.Model.Age
+            </td>
+        </tr>
+        <tr>
+            <td>User name</td>
+            <td>
+                @this.Model.UserName
+            </td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td>@this.Model.RoleName</td>
+        </tr>
+    </table>
+</div>
+
+<hr />
+
+@{
+    Html.RenderAction("GetRoles");
+}
+
+<hr />
+
+<div>
+    @{
+        Html.RenderAction("GetUsersAndTheirRoles");
+    }
+</div>
+
+<hr />
+
+<div>
+    @{
+        Html.RenderAction("GetRolesAndUsersIn");
+    }
+</div>

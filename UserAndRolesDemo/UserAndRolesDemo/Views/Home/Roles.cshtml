@@ -1,0 +1,25 @@
+﻿@model IEnumerable<string>
+
+
+@using (Html.BeginForm("AddCurrentUserToRole", "Home", FormMethod.Post))
+{
+
+    <h3> Assign current user to role</h3>
+
+    <div class="row">
+        <div class="col-md-4">
+            <select name="rolename" required="required" class="form-control">
+                @foreach (string role in this.Model)
+                {
+                    <option value="@role">@role</option>
+                }
+            </select>
+
+        </div>
+        <div class="col-md-4">
+             <input class="btn btn-warning" value="Submit" type="submit" />
+        </div>
+
+    </div>
+
+}
