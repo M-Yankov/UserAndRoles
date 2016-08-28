@@ -27,7 +27,7 @@ namespace UserAndRolesDemo
             this.SeedUsersAndRoles(context);
         }
 
-        private async void SeedUsersAndRoles(ApplicationDbContext context)
+        private void SeedUsersAndRoles(ApplicationDbContext context)
         {
             if (context.Roles.Count() == 0)
             {
