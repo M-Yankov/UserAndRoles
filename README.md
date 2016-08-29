@@ -121,7 +121,9 @@ public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUs
   /// the rest of the code is not changed.
 ```
 
-Now check `GetUsersAndTheirRoles()` in `HomeController.cs`. The old way to get roles is not good, because it makes many queries to the database and it may be slow.
+After run this project. The database structure remains the same. TODO: add screenshot.
+
+Let's check `GetUsersAndTheirRoles()` method in `HomeController.cs`. The old way to get roles is not good, because it makes many queries to the database and it may be slow.
 ```csharp
 var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
 IEnumerable<IdentityUser> dbUsers = userManager.Users.ToList();
@@ -149,6 +151,10 @@ model = new ApplicationDbContext().Users.Include(u => u.Roles).Select(u => new U
 
 ```
 Now this gets all users with their roles with minimum effort (one query).
+
+In this tutorial the best code practices are not applied, example: Initializing the context in the controller. It is just for example how `IdentityUserRole` can be extended. Also view models are used for displaying inforamtion from database. (It's is highly recommended to use View Models in MVC). 
+
+*Note*: copy-pasting may cause many errors, so read carefully.
 
 ### Web-Site Explanation
 
@@ -178,6 +184,11 @@ Now this gets all users with their roles with minimum effort (one query).
  
  [Extending primarykey of identityuserrole in identity 2](http://stackoverflow.com/questions/28721051/extending-primarykey-of-identityuserrole-in-identity-2)
  
+### Questions & Issues
+
+If you have questions, ideas or you found a bug, feel free to submit an issue [here](https://github.com/M-Yankov/UserAndRoles/issues/new).
+
+[All Issues](https://github.com/M-Yankov/UserAndRoles/issues).
 
 
 #### Tags 
