@@ -121,7 +121,9 @@ public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUs
   /// the rest of the code is not changed.
 ```
 
-After run this project. The database structure remains the same. TODO: add screenshot.
+After run this project. The database structure remains the same. 
+![Diagram](/UserAndRolesDemo/UserAndRolesDemo/Content/Images/Diagram.png?raw=true)
+
 
 Let's check `GetUsersAndTheirRoles()` method in `HomeController.cs`. The old way to get roles is not good, because it makes many queries to the database and it may be slow.
 ```csharp
